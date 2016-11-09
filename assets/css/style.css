@@ -1,0 +1,12 @@
+label {
+	font-style: bold;
+}
+a:hover {
+	color: teal;
+} 
+button, div, form, input {
+	margin: 10px;
+}
+.container {
+	background: blue;
+}
