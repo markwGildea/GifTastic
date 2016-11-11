@@ -24,3 +24,7 @@ body {
 #animal-view {
   width: 100%;
 }
+
+#animalButtons {
+	height: 15px;
+}

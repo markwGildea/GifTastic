@@ -19,7 +19,7 @@ $(document).ready(function() {
 
             for (var i = 0; i < results.length; i++) {
 
-                var giphyDiv = $('<div class="giphy">');
+                var animalsDiv = $('<div class="animals">');
                 var rating = results[i].rating;
                 var p = $('<p>').text("Rating :" + rating);
                 var giphyImge = $('<img>');
@@ -28,12 +28,13 @@ $(document).ready(function() {
 
                 giphyImge.attr('data-still', results[i].images.fixed_height_still.url);
                 giphyImge.attr('data-animate', results[i].images.fixed_height.url);
+               
                 giphyImge.attr('class', 'gif');
+				
+                animalsDiv.append(p);
+                animalsDiv.append(giphyImge);
 
-                giphyDiv.append(p);
-                giphyDiv.append(giphyImge);
-
-                $('#animalView').prepend(giphyDiv);
+                $('#animalView').prepend(animalsDiv);
             }
 
             $('.gif').on('click', function() {
