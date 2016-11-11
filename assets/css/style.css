@@ -1,15 +1,26 @@
 label {
-	font-style: bold;
+  font-style: bold;
 }
+
 a:hover {
-	background-color: teal;
-} 
-button, div, form, input {
-	margin: 10px;
+  background-color: teal;
 }
+
+button,
+div,
+form,
+input {
+  margin: 10px;
+}
+
 body {
-	background: dodgerblue;
+  background: dodgerblue;
 }
+
 #animal-form {
-	float: right;
+  float: right;
+}
+
+#animal-view {
+  width: 100%;
 }
