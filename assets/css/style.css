@@ -2,11 +2,14 @@ label {
 	font-style: bold;
 }
 a:hover {
-	color: teal;
+	background-color: teal;
 } 
 button, div, form, input {
 	margin: 10px;
 }
-.container {
-	background: blue;
+body {
+	background: lightgray;
+}
+#animal-form {
+	float: right;
 }
