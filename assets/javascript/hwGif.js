@@ -5,7 +5,7 @@ var animalS = [];
 //displayGifs function now displays the appropriate gifs
 function displayGifs() {
 
-    var giphy = $(this).data('animal');
+    var giphy = $(this).data('name');
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + giphy + "&api_key=dc6zaTOxFJmzC&limit=10";
 
     // Creates AJAX call for the specific gif being
@@ -16,22 +16,6 @@ function displayGifs() {
         console.log(response);
 
         var results = response.data;
-
-        // var giphyDiv = $('<div class="giphy">');
-
-        // var ratings = response.rating;
-
-        // var displayRating = $('<p>').text("Rating: " + ratings);
-
-        // giphyDiv.append(displayRating);
-
-        // var image = $('<img>').attr("src", response.Poster);
-
-        // //appends the giphy
-        // giphyDiv.append(image);
-
-        // //puts the entire giphy above the previous ones
-        // $('#animals').prepend(giphyDiv);
 
         for (var i = 0; i < results.length; i++) {
 
@@ -50,8 +34,24 @@ function displayGifs() {
             giphyDiv.append(giphyImge);
 
             $('#animalView').prepend(giphyDiv);
-        }
-    });
+ }
+
+    $('.gif').on('click', function() {
+
+    
+    var state = $(this).attr('data-state');
+
+    if ( state == 'still'){
+      $(this).attr('src', $(this).data('animate'));
+      $(this).attr('data-state', 'animate');
+    }else{
+      $(this).attr('src', $(this).data('still'));
+      $(this).attr('data-state', 'still');
+    }
+
+});
+
+});
 
 }
 
@@ -59,6 +59,7 @@ function renderButtons() {
 
     // deletes the giphys prior to adding new ones
     $('#animalButtons').empty();
+
 
     for (var i = 0; i < animalS.length; i++) {
 
@@ -70,20 +71,26 @@ function renderButtons() {
     }
 }
 
+
+
+$(document).on('click', '.giphy', displayGifs);
+
 $('#addAnimal').on('click', function() {
+	var animalInput = $('#animal-input').val().trim();
 
-    var giphy = $('#animal-input').val().trim();
-    // var state = $(this).data('state');
+	animalS.push(animalInput);
 
-    animalS.push(giphy);
+	$('#animal-input').val("");
 
     renderButtons();
 
     return false;
 });
 
-$(document).on('click', '.giphy', displayGifs);
+
 
 renderButtons();
+
+
 
 });
